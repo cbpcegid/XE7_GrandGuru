@@ -2,4 +2,30 @@ inherited frmProduct_LgXhdpiTb: TfrmProduct_LgXhdpiTb
   ClientHeight = 829
   ClientWidth = 480
   DesignerMasterStyle = 3
+  inherited rcSuggestions: TRectangle
+    Position.X = -9.000000000000000000
+    Size.Height = 829.000000000000000000
+    inherited Panel2: TPanel
+      Size.Height = 779.000000000000000000
+      inherited lstItems: TListView
+        Size.Height = 779.000000000000000000
+      end
+    end
+  end
+  inherited rcCustomer: TRectangle
+    Position.Y = 669.000000000000000000
+    Size.Width = 0.000000000000000000
+    inherited Label2: TLabel [0]
+    end
+    inherited Label3: TLabel [1]
+    end
+    inherited lbCustomerName: TLabel [2]
+    end
+    inherited lbFinalPrice: TLabel [3]
+    end
+    inherited lbVoucherCredit: TLabel [4]
+    end
+    inherited rcCustomerCadre: TRectangle [5]
+    end
+  end
 end

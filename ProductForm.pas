@@ -18,10 +18,14 @@ type
     rcSuggestions: TRectangle;
     lbVoucherCredit: TLabel;
     lbCustomerName: TLabel;
-    gbCustomer: TGroupBox;
     Label2: TLabel;
     Label3: TLabel;
     lbFinalPrice: TLabel;
+    rcCustomer: TRectangle;
+    rcCustomerCadre: TRectangle;
+    Label1: TLabel;
+    Panel2: TPanel;
+    Rectangle1: TRectangle;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
@@ -30,12 +34,18 @@ type
     FcustomerId : Integer;
     procedure VisibleProduct( aVisible : Boolean);
     procedure VisibleCustomer( aVisible : Boolean);
+
+    procedure InnerUpdateProduct( aProduct : TJSONValue);
+    procedure InnerUpdateCustomer( aCustomer : TJSONValue);
+    procedure InnerClearProduct;
+    procedure InnerClearCustomer;
     {IMain}
-    procedure UpdateProduct( aProduct : TJSONValue);
-    procedure UpdateCustomer( aCustomer : TJSONValue);
-    function ImgProduct : TBitmap;
-    procedure ClearProduct;
-    procedure ClearCustomer;
+    function UpdateProduct : TItemUpdater;
+    function UpdateCustomer : TItemUpdater;
+    function ClearProduct : TClearMethod;
+    function ClearCustomer : TClearMethod;
+
+    procedure UpdateFinalPrice;
   public
   end;
 
@@ -47,15 +57,24 @@ implementation
 {$R *.fmx}
 {$R *.LgXhdpiTb.fmx ANDROID}
 
-procedure TfrmProduct.ClearProduct;
+function TfrmProduct.ClearCustomer: TClearMethod;
 begin
-  VisibleProduct( False);
-  FproductId := -1;
-  lstItems.Items.Clear;
-//  lstItems.
+  Result := InnerClearCustomer;
 end;
 
-procedure TfrmProduct.ClearCustomer;
+procedure TfrmProduct.InnerClearProduct;
+begin
+  VisibleProduct( False);
+  lstItems.Items.Clear;
+  FproductId := -1;
+end;
+
+function TfrmProduct.ClearProduct: TClearMethod;
+begin
+  Result := InnerClearProduct;
+end;
+
+procedure TfrmProduct.InnerClearCustomer;
 begin
   VisibleCustomer( False);
   FcustomerId := -1;
@@ -66,8 +85,8 @@ var i : Integer;
     K : TListViewItem;
 begin
   fDM := TdmData.Create( Self);
-  ClearProduct;
-  ClearCustomer;
+  InnerClearProduct;
+  InnerClearCustomer;
 end;
 
 procedure TfrmProduct.FormDestroy(Sender: TObject);
@@ -75,12 +94,7 @@ begin
   fDM.Free;
 end;
 
-function TfrmProduct.ImgProduct: TBitmap;
-begin
-  Result := imgProd.Bitmap;
-end;
-
-procedure TfrmProduct.UpdateCustomer(aCustomer: TJSONValue);
+procedure TfrmProduct.InnerUpdateCustomer(aCustomer: TJSONValue);
 begin
   if aCustomer.GetValue<integer>( 'Id') = FcustomerId then exit;
 
@@ -88,12 +102,33 @@ begin
 
   lbCustomerName.Text := Format('%s %s', [aCustomer.GetValue<string>( 'FirstName'), aCustomer.GetValue<string>( 'LastName')]);
   lbVoucherCredit.Text := aCustomer.GetValue<string>( 'LoyaltyVoucher');
-  //lbFinalPrice.Text := aProduct.GetValue<double>( 'Price') - aCustomer.GetValue<double>( 'LoyaltyVoucher');
+
+  UpdateFinalPrice;
 
   VisibleCustomer( True);
 end;
 
-procedure TfrmProduct.UpdateProduct(aProduct: TJSONValue);
+function TfrmProduct.UpdateCustomer: TItemUpdater;
+begin
+  Result := InnerUpdateCustomer;
+end;
+
+procedure TfrmProduct.UpdateFinalPrice;
+begin
+  if ((Fcustomerid <> -1) and (FproductId <> -1)) then
+  begin
+    lbFinalPrice.Text := FloatToStr(StrToFloat(lbPrice.Text, TFormatSettings.Create('en-US')) - StrToFloat(lbVoucherCredit.Text, TFormatSettings.Create('en-US')));
+    lbFinalPrice.Visible := True;
+    Label3.Visible := True;
+  end
+  else
+  begin
+    lbFinalPrice.Visible := False;
+    Label3.Visible := False;
+  end;
+end;
+
+procedure TfrmProduct.InnerUpdateProduct(aProduct: TJSONValue);
 var A : TJSONArray;
     K : TListViewItem;
     i : Integer;
@@ -127,12 +162,19 @@ begin
     M.Free;
   end;
 
+  UpdateFinalPrice;
+
   VisibleProduct( True);
+end;
+
+function TfrmProduct.UpdateProduct: TItemUpdater;
+begin
+  Result := InnerUpdateProduct;
 end;
 
 procedure TfrmProduct.VisibleCustomer(aVisible: Boolean);
 begin
-  gbCustomer.Visible := aVisible;
+  rcCustomer.Visible := aVisible;
 end;
 
 procedure TfrmProduct.VisibleProduct(aVisible: Boolean);
@@ -140,6 +182,7 @@ begin
   imgProd.Visible := aVisible;
   lbProdName.Visible := aVisible;
   lbPrice.Visible := aVisible;
+  label1.Visible := aVisible;
   rcSuggestions.Visible := aVisible;
 end;
 

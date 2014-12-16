@@ -8,13 +8,15 @@ uses
   IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, FMX.Graphics;
 
 type
+  TItemUpdater = procedure ( aJSon : TJSONValue) of object;
+  TClearMethod = procedure of object;
+
   IMain = interface
   ['{B9603B01-F571-4EF9-95E4-E919EA6296CF}']
-    procedure UpdateProduct ( aProduct : TJSONValue);
-    procedure UpdateCustomer ( aCustomer : TJSONValue);
-    function ImgProduct : TBitmap;
-    procedure ClearProduct;
-    procedure ClearCustomer;
+    function UpdateProduct : TItemUpdater;
+    function UpdateCustomer : TItemUpdater;
+    function ClearProduct : TClearMethod;
+    function ClearCustomer : TClearMethod;
   end;
 
   TdmData = class(TDataModule)
@@ -28,6 +30,7 @@ type
     procedure TimerTimer(Sender: TObject);
   private
     FMain : IMain;
+    procedure Update( aResponse : TRESTResponse; aUpdater : TItemUpdater; aClearer : TClearMethod);
   public
     constructor Create( aMain : IMain); reintroduce;
     procedure LoadImage( aUrl : String; var aStream : TMemoryStream);
@@ -59,18 +62,18 @@ end;
 procedure TdmData.TimerTimer(Sender: TObject);
 begin
   GetProductRequest.Execute;
-  if (GetProductRequest.Response.StatusCode = 200) then begin
-//    Timer.Enabled := False;
-    if not( GetProductResponse.JSONText = 'null') then FMain.UpdateProduct( GetProductResponse.JSONValue)
-    else FMain.ClearProduct;
-  end;
+  Update( GetProductResponse, FMain.UpdateProduct, FMain.ClearProduct);
 
   GetCustomerRequest.Execute;
-  if (GetCustomerRequest.Response.StatusCode = 200) then begin
-//    Timer.Enabled := False;
-    if not( GetCustomerResponse.JSONText = 'null') then FMain.UpdateCustomer( GetCustomerResponse.JSONValue)
-    else FMain.ClearCustomer;
-  end;
+  Update( GetCustomerResponse, FMain.UpdateCustomer, FMain.ClearCustomer);
+end;
+
+procedure TdmData.Update(aResponse: TRESTResponse; aUpdater: TItemUpdater;
+  aClearer: TClearMethod);
+begin
+  if not( aResponse.StatusCode = 200) then exit;
+
+  if aResponse.JSONText = 'null' then aClearer else aUpdater( aResponse.JSONValue);
 end;
 
 end.

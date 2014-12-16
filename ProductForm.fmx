@@ -7,10 +7,12 @@ object frmProduct: TfrmProduct
   Fill.Kind = Solid
   FormFactor.Width = 1920
   FormFactor.Height = 1200
+  FormFactor.Orientations = [Landscape]
   FormFactor.Devices = [Desktop, iPhone, iPad]
+  FullScreen = True
   OnCreate = FormCreate
   OnDestroy = FormDestroy
-  DesignerMasterStyle = 3
+  DesignerMasterStyle = 0
   object imgProd: TImageControl
     Position.X = 8.000000000000000000
     Position.Y = 8.000000000000000000
@@ -22,13 +24,13 @@ object frmProduct: TfrmProduct
   object lbPrice: TLabel
     AutoSize = True
     StyledSettings = [Style]
-    Position.X = 8.000000000000000000
-    Position.Y = 382.000000000000000000
-    Size.Width = 108.000000000000000000
-    Size.Height = 37.000000000000000000
+    Position.X = 168.000000000000000000
+    Position.Y = 374.000000000000000000
+    Size.Width = 81.000000000000000000
+    Size.Height = 28.000000000000000000
     Size.PlatformDefault = False
     TextSettings.Font.Family = 'Arial'
-    TextSettings.Font.Size = 32.000000000000000000
+    TextSettings.Font.Size = 24.000000000000000000
     TextSettings.FontColor = xFF5F7890
     TextSettings.WordWrap = False
     Text = 'lbPrice'
@@ -48,98 +50,90 @@ object frmProduct: TfrmProduct
     Text = 'lbProdName'
   end
   object rcSuggestions: TRectangle
-    Anchors = [akLeft, akTop, akRight, akBottom]
+    Align = MostRight
     Fill.Color = claWhite
-    Position.X = 464.000000000000000000
-    Position.Y = 8.000000000000000000
+    Position.X = 471.000000000000000000
     Size.Width = 489.000000000000000000
-    Size.Height = 585.000000000000000000
+    Size.Height = 600.000000000000000000
     Size.PlatformDefault = False
     Stroke.Color = xFF5F7890
-    object lstItems: TListView
-      ItemAppearanceClassName = 'TImageListItemAppearance'
-      ItemEditAppearanceClassName = 'TImageListItemDeleteAppearance'
-      HeaderAppearanceClassName = 'TListHeaderObjects'
-      FooterAppearanceClassName = 'TListHeaderObjects'
-      Position.X = 1.000000000000000000
-      Position.Y = 48.000000000000000000
-      Size.Width = 487.000000000000000000
-      Size.Height = 535.000000000000000000
+    object Panel2: TPanel
+      Align = Client
+      Size.Width = 489.000000000000000000
+      Size.Height = 559.000000000000000000
       Size.PlatformDefault = False
       TabOrder = 0
-      ItemAppearance.ItemHeight = 200
-      ItemAppearance.HeaderHeight = 1
-      ItemAppearance.FooterHeight = 1
-      ItemAppearanceObjects.ItemObjects.Text.Font.Family = 'Arial'
-      ItemAppearanceObjects.ItemObjects.Text.Font.Size = 24.000000000000000000
-      ItemAppearanceObjects.ItemObjects.Text.WordWrap = True
-      ItemAppearanceObjects.ItemObjects.Text.TextColor = xFF5F7890
-      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
-      ItemAppearanceObjects.ItemObjects.Image.Width = 200.000000000000000000
-      ItemAppearanceObjects.ItemObjects.Image.Height = 200.000000000000000000
-      ShowSelection = False
+      object lstItems: TListView
+        ItemAppearanceClassName = 'TImageListItemAppearance'
+        ItemEditAppearanceClassName = 'TImageListItemDeleteAppearance'
+        HeaderAppearanceClassName = 'TListHeaderObjects'
+        FooterAppearanceClassName = 'TListHeaderObjects'
+        Align = Client
+        Size.Width = 489.000000000000000000
+        Size.Height = 559.000000000000000000
+        Size.PlatformDefault = False
+        TabOrder = 0
+        ItemAppearance.ItemHeight = 204
+        ItemAppearance.HeaderHeight = 1
+        ItemAppearance.FooterHeight = 1
+        ItemAppearanceObjects.ItemObjects.Text.Font.Family = 'Arial'
+        ItemAppearanceObjects.ItemObjects.Text.Font.Size = 24.000000000000000000
+        ItemAppearanceObjects.ItemObjects.Text.WordWrap = True
+        ItemAppearanceObjects.ItemObjects.Text.TextColor = xFF5F7890
+        ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+        ItemAppearanceObjects.ItemObjects.Image.Width = 200.000000000000000000
+        ItemAppearanceObjects.ItemObjects.Image.Height = 200.000000000000000000
+        ShowSelection = False
+      end
     end
-    object lbSuggestions: TLabel
-      AutoSize = True
-      StyledSettings = [Style]
-      Position.X = 7.000000000000000000
-      Position.Y = 5.000000000000000000
-      Size.Width = 202.000000000000000000
-      Size.Height = 37.000000000000000000
+    object Rectangle1: TRectangle
+      Align = Top
+      Fill.Color = xFFF3F7FB
+      Size.Width = 489.000000000000000000
+      Size.Height = 41.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Family = 'Arial'
-      TextSettings.Font.Size = 32.000000000000000000
-      TextSettings.FontColor = xFF5F7890
-      TextSettings.WordWrap = False
-      Text = 'Suggestions :'
+      Stroke.Color = xFFF3F7FB
+      object lbSuggestions: TLabel
+        AutoSize = True
+        StyledSettings = [Style]
+        Position.X = 7.000000000000000000
+        Position.Y = 5.000000000000000000
+        Size.Width = 152.000000000000000000
+        Size.Height = 28.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Family = 'Arial'
+        TextSettings.Font.Size = 24.000000000000000000
+        TextSettings.FontColor = xFF5F7890
+        TextSettings.WordWrap = False
+        Text = 'Suggestions :'
+      end
     end
   end
-  object gbCustomer: TGroupBox
-    Anchors = [akLeft]
-    StyledSettings = [Style, Other]
-    Position.X = 8.000000000000000000
-    Position.Y = 432.000000000000000000
-    Size.Width = 449.000000000000000000
-    Size.Height = 70.000000000000000000
+  object rcCustomer: TRectangle
+    Align = Bottom
+    Fill.Color = claNull
+    Position.Y = 440.000000000000000000
+    Size.Width = 471.000000000000000000
+    Size.Height = 160.000000000000000000
     Size.PlatformDefault = False
-    Text = 'Informations client'
-    TextSettings.Font.Family = 'Arial'
-    TextSettings.Font.Size = 20.000000000000000000
-    TextSettings.FontColor = xFF5F7890
-    TabOrder = 4
-    object lbCustomerName: TLabel
-      AutoSize = True
-      StyledSettings = [Style]
-      Position.X = 16.000000000000000000
-      Position.Y = 28.000000000000000000
-      Size.Width = 259.000000000000000000
-      Size.Height = 37.000000000000000000
+    Stroke.Thickness = 0.000000000000000000
+    Stroke.Cap = Round
+    Stroke.Dash = Custom
+    object rcCustomerCadre: TRectangle
+      Fill.Color = claNull
+      Position.X = 8.000000000000000000
+      Position.Y = 6.000000000000000000
+      Size.Width = 457.000000000000000000
+      Size.Height = 147.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Family = 'Arial'
-      TextSettings.Font.Size = 32.000000000000000000
-      TextSettings.FontColor = xFF5F7890
-      TextSettings.WordWrap = False
-      Text = 'lbCustomerName'
-    end
-    object lbVoucherCredit: TLabel
-      AutoSize = True
-      StyledSettings = [Style]
-      Position.X = 176.000000000000000000
-      Position.Y = 76.000000000000000000
-      Size.Width = 179.000000000000000000
-      Size.Height = 28.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.Family = 'Arial'
-      TextSettings.Font.Size = 24.000000000000000000
-      TextSettings.FontColor = xFF5F7890
-      TextSettings.WordWrap = False
-      Text = 'lbVoucherCredit'
+      Stroke.Color = xFF002F60
+      Stroke.Cap = Round
     end
     object Label2: TLabel
       AutoSize = True
       StyledSettings = [Style]
-      Position.X = 16.000000000000000000
-      Position.Y = 76.000000000000000000
+      Position.X = 32.000000000000000000
+      Position.Y = 68.000000000000000000
       Size.Width = 146.000000000000000000
       Size.Height = 28.000000000000000000
       Size.PlatformDefault = False
@@ -152,8 +146,8 @@ object frmProduct: TfrmProduct
     object Label3: TLabel
       AutoSize = True
       StyledSettings = [Style]
-      Position.X = 16.000000000000000000
-      Position.Y = 116.000000000000000000
+      Position.X = 32.000000000000000000
+      Position.Y = 109.000000000000000000
       Size.Width = 121.000000000000000000
       Size.Height = 28.000000000000000000
       Size.PlatformDefault = False
@@ -163,19 +157,62 @@ object frmProduct: TfrmProduct
       TextSettings.WordWrap = False
       Text = 'Votre prix :'
     end
-    object lbFinalPrice: TLabel
+    object lbCustomerName: TLabel
       AutoSize = True
       StyledSettings = [Style]
-      Position.X = 176.000000000000000000
-      Position.Y = 116.000000000000000000
-      Size.Width = 133.000000000000000000
+      Position.X = 32.000000000000000000
+      Position.Y = 20.000000000000000000
+      Size.Width = 259.000000000000000000
+      Size.Height = 37.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 32.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'lbCustomerName'
+    end
+    object lbFinalPrice: TLabel
+      AutoSize = True
+      StyledSettings = []
+      Position.X = 192.000000000000000000
+      Position.Y = 109.000000000000000000
+      Size.Width = 144.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.Font.Style = [fsBold]
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'lbFinalPrice'
+    end
+    object lbVoucherCredit: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 192.000000000000000000
+      Position.Y = 68.000000000000000000
+      Size.Width = 179.000000000000000000
       Size.Height = 28.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.Family = 'Arial'
       TextSettings.Font.Size = 24.000000000000000000
       TextSettings.FontColor = xFF5F7890
       TextSettings.WordWrap = False
-      Text = 'lbFinalPrice'
+      Text = 'lbVoucherCredit'
     end
+  end
+  object Label1: TLabel
+    AutoSize = True
+    StyledSettings = [Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 373.000000000000000000
+    Size.Width = 158.000000000000000000
+    Size.Height = 28.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Arial'
+    TextSettings.Font.Size = 24.000000000000000000
+    TextSettings.FontColor = xFF5F7890
+    TextSettings.WordWrap = False
+    Text = 'Prix magasin :'
   end
 end
