@@ -94,4 +94,88 @@ object frmProduct: TfrmProduct
       Text = 'Suggestions :'
     end
   end
+  object gbCustomer: TGroupBox
+    Anchors = [akLeft]
+    StyledSettings = [Style, Other]
+    Position.X = 8.000000000000000000
+    Position.Y = 432.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 70.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Informations client'
+    TextSettings.Font.Family = 'Arial'
+    TextSettings.Font.Size = 20.000000000000000000
+    TextSettings.FontColor = xFF5F7890
+    TabOrder = 4
+    object lbCustomerName: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 16.000000000000000000
+      Position.Y = 28.000000000000000000
+      Size.Width = 259.000000000000000000
+      Size.Height = 37.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 32.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'lbCustomerName'
+    end
+    object lbVoucherCredit: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 176.000000000000000000
+      Position.Y = 76.000000000000000000
+      Size.Width = 179.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'lbVoucherCredit'
+    end
+    object Label2: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 16.000000000000000000
+      Position.Y = 76.000000000000000000
+      Size.Width = 146.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'Bon d'#39'achat :'
+    end
+    object Label3: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 16.000000000000000000
+      Position.Y = 116.000000000000000000
+      Size.Width = 121.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'Votre prix :'
+    end
+    object lbFinalPrice: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 176.000000000000000000
+      Position.Y = 116.000000000000000000
+      Size.Width = 133.000000000000000000
+      Size.Height = 28.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 24.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'lbFinalPrice'
+    end
+  end
 end

@@ -16,16 +16,26 @@ type
     lbProdName: TLabel;
     lbSuggestions: TLabel;
     rcSuggestions: TRectangle;
+    lbVoucherCredit: TLabel;
+    lbCustomerName: TLabel;
+    gbCustomer: TGroupBox;
+    Label2: TLabel;
+    Label3: TLabel;
+    lbFinalPrice: TLabel;
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
     fDM : TdmData;
-    Fid : Integer;
+    FproductId : Integer;
+    FcustomerId : Integer;
     procedure VisibleProduct( aVisible : Boolean);
+    procedure VisibleCustomer( aVisible : Boolean);
     {IMain}
     procedure UpdateProduct( aProduct : TJSONValue);
+    procedure UpdateCustomer( aCustomer : TJSONValue);
     function ImgProduct : TBitmap;
-    procedure Clear;
+    procedure ClearProduct;
+    procedure ClearCustomer;
   public
   end;
 
@@ -37,12 +47,18 @@ implementation
 {$R *.fmx}
 {$R *.LgXhdpiTb.fmx ANDROID}
 
-procedure TfrmProduct.Clear;
+procedure TfrmProduct.ClearProduct;
 begin
   VisibleProduct( False);
-  Fid := -1;
+  FproductId := -1;
   lstItems.Items.Clear;
 //  lstItems.
+end;
+
+procedure TfrmProduct.ClearCustomer;
+begin
+  VisibleCustomer( False);
+  FcustomerId := -1;
 end;
 
 procedure TfrmProduct.FormCreate(Sender: TObject);
@@ -50,7 +66,8 @@ var i : Integer;
     K : TListViewItem;
 begin
   fDM := TdmData.Create( Self);
-  Clear;
+  ClearProduct;
+  ClearCustomer;
 end;
 
 procedure TfrmProduct.FormDestroy(Sender: TObject);
@@ -63,15 +80,28 @@ begin
   Result := imgProd.Bitmap;
 end;
 
+procedure TfrmProduct.UpdateCustomer(aCustomer: TJSONValue);
+begin
+  if aCustomer.GetValue<integer>( 'Id') = FcustomerId then exit;
+
+  FcustomerId := aCustomer.GetValue<integer>( 'Id');
+
+  lbCustomerName.Text := Format('%s %s', [aCustomer.GetValue<string>( 'FirstName'), aCustomer.GetValue<string>( 'LastName')]);
+  lbVoucherCredit.Text := aCustomer.GetValue<string>( 'LoyaltyVoucher');
+  //lbFinalPrice.Text := aProduct.GetValue<double>( 'Price') - aCustomer.GetValue<double>( 'LoyaltyVoucher');
+
+  VisibleCustomer( True);
+end;
+
 procedure TfrmProduct.UpdateProduct(aProduct: TJSONValue);
 var A : TJSONArray;
     K : TListViewItem;
     i : Integer;
     M : TMemoryStream;
 begin
-  if aProduct.GetValue<integer>( 'Id') = Fid then exit;
+  if aProduct.GetValue<integer>( 'Id') = FproductId then exit;
 
-  Fid := aProduct.GetValue<integer>( 'Id');
+  FproductId := aProduct.GetValue<integer>( 'Id');
 
   M := TMemoryStream.Create;
   try
@@ -100,9 +130,13 @@ begin
   VisibleProduct( True);
 end;
 
+procedure TfrmProduct.VisibleCustomer(aVisible: Boolean);
+begin
+  gbCustomer.Visible := aVisible;
+end;
+
 procedure TfrmProduct.VisibleProduct(aVisible: Boolean);
 begin
-// pouet
   imgProd.Visible := aVisible;
   lbProdName.Visible := aVisible;
   lbPrice.Visible := aVisible;

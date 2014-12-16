@@ -46,4 +46,17 @@ object dmData: TdmData
     Left = 400
     Top = 136
   end
+  object GetCustomerRequest: TRESTRequest
+    Client = KanguruClient
+    Params = <>
+    Resource = 'Customer/Current'
+    Response = GetCustomerResponse
+    SynchronizedEvents = False
+    Left = 600
+    Top = 384
+  end
+  object GetCustomerResponse: TRESTResponse
+    Left = 456
+    Top = 424
+  end
 end

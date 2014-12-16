@@ -11,8 +11,10 @@ type
   IMain = interface
   ['{B9603B01-F571-4EF9-95E4-E919EA6296CF}']
     procedure UpdateProduct ( aProduct : TJSONValue);
+    procedure UpdateCustomer ( aCustomer : TJSONValue);
     function ImgProduct : TBitmap;
-    procedure Clear;
+    procedure ClearProduct;
+    procedure ClearCustomer;
   end;
 
   TdmData = class(TDataModule)
@@ -21,6 +23,8 @@ type
     GetProductRequest: TRESTRequest;
     GetProductResponse: TRESTResponse;
     idImgLoader: TIdHTTP;
+    GetCustomerRequest: TRESTRequest;
+    GetCustomerResponse: TRESTResponse;
     procedure TimerTimer(Sender: TObject);
   private
     FMain : IMain;
@@ -58,7 +62,14 @@ begin
   if (GetProductRequest.Response.StatusCode = 200) then begin
 //    Timer.Enabled := False;
     if not( GetProductResponse.JSONText = 'null') then FMain.UpdateProduct( GetProductResponse.JSONValue)
-    else FMain.Clear;
+    else FMain.ClearProduct;
+  end;
+
+  GetCustomerRequest.Execute;
+  if (GetCustomerRequest.Response.StatusCode = 200) then begin
+//    Timer.Enabled := False;
+    if not( GetCustomerResponse.JSONText = 'null') then FMain.UpdateCustomer( GetCustomerResponse.JSONValue)
+    else FMain.ClearCustomer;
   end;
 end;
 
