@@ -102,6 +102,7 @@ end;
 
 procedure TfrmProduct.VisibleProduct(aVisible: Boolean);
 begin
+// pouet
   imgProd.Visible := aVisible;
   lbProdName.Visible := aVisible;
   lbPrice.Visible := aVisible;
