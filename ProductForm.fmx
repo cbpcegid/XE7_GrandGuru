@@ -1,0 +1,97 @@
+object frmProduct: TfrmProduct
+  Left = 0
+  Top = 0
+  ClientHeight = 600
+  ClientWidth = 960
+  Fill.Color = xFFF3F7FB
+  Fill.Kind = Solid
+  FormFactor.Width = 1920
+  FormFactor.Height = 1200
+  FormFactor.Devices = [Desktop, iPhone, iPad]
+  OnCreate = FormCreate
+  OnDestroy = FormDestroy
+  DesignerMasterStyle = 3
+  object imgProd: TImageControl
+    Position.X = 8.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 449.000000000000000000
+    Size.Height = 313.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 3
+  end
+  object lbPrice: TLabel
+    AutoSize = True
+    StyledSettings = [Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 382.000000000000000000
+    Size.Width = 108.000000000000000000
+    Size.Height = 37.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Arial'
+    TextSettings.Font.Size = 32.000000000000000000
+    TextSettings.FontColor = xFF5F7890
+    TextSettings.WordWrap = False
+    Text = 'lbPrice'
+  end
+  object lbProdName: TLabel
+    AutoSize = True
+    StyledSettings = [Style]
+    Position.X = 8.000000000000000000
+    Position.Y = 333.000000000000000000
+    Size.Width = 188.000000000000000000
+    Size.Height = 37.000000000000000000
+    Size.PlatformDefault = False
+    TextSettings.Font.Family = 'Arial'
+    TextSettings.Font.Size = 32.000000000000000000
+    TextSettings.FontColor = xFF5F7890
+    TextSettings.WordWrap = False
+    Text = 'lbProdName'
+  end
+  object rcSuggestions: TRectangle
+    Anchors = [akLeft, akTop, akRight, akBottom]
+    Fill.Color = claWhite
+    Position.X = 464.000000000000000000
+    Position.Y = 8.000000000000000000
+    Size.Width = 489.000000000000000000
+    Size.Height = 585.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = xFF5F7890
+    object lstItems: TListView
+      ItemAppearanceClassName = 'TImageListItemAppearance'
+      ItemEditAppearanceClassName = 'TImageListItemDeleteAppearance'
+      HeaderAppearanceClassName = 'TListHeaderObjects'
+      FooterAppearanceClassName = 'TListHeaderObjects'
+      Position.X = 1.000000000000000000
+      Position.Y = 48.000000000000000000
+      Size.Width = 487.000000000000000000
+      Size.Height = 535.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 0
+      ItemAppearance.ItemHeight = 200
+      ItemAppearance.HeaderHeight = 1
+      ItemAppearance.FooterHeight = 1
+      ItemAppearanceObjects.ItemObjects.Text.Font.Family = 'Arial'
+      ItemAppearanceObjects.ItemObjects.Text.Font.Size = 24.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Text.WordWrap = True
+      ItemAppearanceObjects.ItemObjects.Text.TextColor = xFF5F7890
+      ItemAppearanceObjects.ItemObjects.Accessory.Visible = False
+      ItemAppearanceObjects.ItemObjects.Image.Width = 200.000000000000000000
+      ItemAppearanceObjects.ItemObjects.Image.Height = 200.000000000000000000
+      ShowSelection = False
+    end
+    object lbSuggestions: TLabel
+      AutoSize = True
+      StyledSettings = [Style]
+      Position.X = 7.000000000000000000
+      Position.Y = 5.000000000000000000
+      Size.Width = 202.000000000000000000
+      Size.Height = 37.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Family = 'Arial'
+      TextSettings.Font.Size = 32.000000000000000000
+      TextSettings.FontColor = xFF5F7890
+      TextSettings.WordWrap = False
+      Text = 'Suggestions :'
+    end
+  end
+end

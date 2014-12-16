@@ -1,0 +1,5 @@
+inherited frmProduct_LgXhdpiTb: TfrmProduct_LgXhdpiTb
+  ClientHeight = 829
+  ClientWidth = 480
+  DesignerMasterStyle = 3
+end
