@@ -8,15 +8,18 @@ uses
   IdComponent, IdTCPConnection, IdTCPClient, IdHTTP, FMX.Graphics;
 
 type
-  TItemUpdater = procedure ( aJSon : TJSONValue) of object;
-  TClearMethod = procedure of object;
+  IItemManager = interface
+  ['{8D045BCF-EA3B-4DD1-B2DD-6A96817A9A96}']
+    procedure ClearItem;
+    procedure UpdateItem( aJSon : TJSONValue);
+  end;
 
-  IMain = interface
-  ['{B9603B01-F571-4EF9-95E4-E919EA6296CF}']
-    function UpdateProduct : TItemUpdater;
-    function UpdateCustomer : TItemUpdater;
-    function ClearProduct : TClearMethod;
-    function ClearCustomer : TClearMethod;
+  IProductManager = interface( IItemManager)
+  ['{A621F290-A97B-419F-91CB-B4BB09C7E333}']
+  end;
+
+  ICustomerManager = interface( IItemManager)
+  ['{101F8D82-93E9-43DE-9781-F0F33556D89F}']
   end;
 
   TdmData = class(TDataModule)
@@ -29,15 +32,14 @@ type
     GetCustomerResponse: TRESTResponse;
     procedure TimerTimer(Sender: TObject);
   private
-    FMain : IMain;
-    procedure Update( aResponse : TRESTResponse; aUpdater : TItemUpdater; aClearer : TClearMethod);
+    FCustomer : ICustomerManager;
+    FProduct : IProductManager;
+
+    procedure Update( aResponse : TRESTResponse; aManager : IItemManager);
   public
-    constructor Create( aMain : IMain); reintroduce;
+    constructor Create( aProductManager : IProductManager; aCustomerManager : ICustomerManager); reintroduce;
     procedure LoadImage( aUrl : String; var aStream : TMemoryStream);
   end;
-
-var
-  dmData: TdmData;
 
 implementation
 
@@ -47,10 +49,12 @@ implementation
 
 { TdmData }
 
-constructor TdmData.Create(aMain: IMain);
+constructor TdmData.Create(aProductManager: IProductManager;
+  aCustomerManager: ICustomerManager);
 begin
   inherited Create( nil);
-  FMain := aMain;
+  FProduct := aProductManager;
+  FCustomer := aCustomerManager;
 end;
 
 procedure TdmData.LoadImage(aUrl: String; var aStream: TMemoryStream);
@@ -62,18 +66,17 @@ end;
 procedure TdmData.TimerTimer(Sender: TObject);
 begin
   GetProductRequest.Execute;
-  Update( GetProductResponse, FMain.UpdateProduct, FMain.ClearProduct);
+  Update( GetProductResponse, FProduct);
 
   GetCustomerRequest.Execute;
-  Update( GetCustomerResponse, FMain.UpdateCustomer, FMain.ClearCustomer);
+  Update( GetCustomerResponse, FCustomer);
 end;
 
-procedure TdmData.Update(aResponse: TRESTResponse; aUpdater: TItemUpdater;
-  aClearer: TClearMethod);
+procedure TdmData.Update(aResponse: TRESTResponse; aManager: IItemManager);
 begin
   if not( aResponse.StatusCode = 200) then exit;
-
-  if aResponse.JSONText = 'null' then aClearer else aUpdater( aResponse.JSONValue);
+  if aResponse.JSONText = 'null' then aManager.ClearItem else aManager.UpdateItem( aResponse.JSONValue);
 end;
+
 
 end.

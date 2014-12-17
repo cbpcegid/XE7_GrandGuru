@@ -13,8 +13,8 @@ object dmData: TdmData
     BaseURL = 'http://192.168.0.26/Kanguru/api'
     Params = <>
     HandleRedirects = True
-    Left = 520
-    Top = 264
+    Left = 544
+    Top = 120
   end
   object GetProductRequest: TRESTRequest
     Client = KanguruClient
@@ -22,12 +22,12 @@ object dmData: TdmData
     Resource = 'Product/Current'
     Response = GetProductResponse
     SynchronizedEvents = False
-    Left = 600
-    Top = 312
+    Left = 608
+    Top = 160
   end
   object GetProductResponse: TRESTResponse
-    Left = 432
-    Top = 352
+    Left = 608
+    Top = 224
   end
   object idImgLoader: TIdHTTP
     AllowCookies = True
@@ -43,8 +43,8 @@ object dmData: TdmData
     Request.Ranges.Units = 'bytes'
     Request.Ranges = <>
     HTTPOptions = [hoForceEncodeParams]
-    Left = 400
-    Top = 136
+    Left = 352
+    Top = 160
   end
   object GetCustomerRequest: TRESTRequest
     Client = KanguruClient
@@ -52,11 +52,11 @@ object dmData: TdmData
     Resource = 'Customer/Current'
     Response = GetCustomerResponse
     SynchronizedEvents = False
-    Left = 600
-    Top = 384
+    Left = 488
+    Top = 176
   end
   object GetCustomerResponse: TRESTResponse
-    Left = 456
-    Top = 424
+    Left = 480
+    Top = 240
   end
 end

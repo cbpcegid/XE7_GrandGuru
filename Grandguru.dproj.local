@@ -2,21 +2,23 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2014/12/15 14:51:55.000.134,=C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
-    <Transaction>2014/12/15 14:52:13.000.381,C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Unit1.fmx=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit1.fmx</Transaction>
-    <Transaction>2014/12/15 14:52:13.000.381,C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Unit1.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit1.pas</Transaction>
-    <Transaction>2014/12/15 14:52:15.000.829,C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Project1.dproj=C:\Users\LIPPOLIS\Documents\00 - XE7\Project1.dproj</Transaction>
+    <Transaction>2014/12/15 14:52:13.000.381,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit1.fmx=C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Unit1.fmx</Transaction>
+    <Transaction>2014/12/15 14:52:13.000.381,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit1.pas=C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Unit1.pas</Transaction>
+    <Transaction>2014/12/15 14:52:15.000.829,C:\Users\LIPPOLIS\Documents\00 - XE7\Project1.dproj=C:\Users\LIPPOLIS\Documents\Embarcadero\Studio\Projets\Project1.dproj</Transaction>
     <Transaction>2014/12/15 15:03:54.000.359,=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas</Transaction>
     <Transaction>2014/12/15 15:04:12.000.383,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit1.pas=</Transaction>
-    <Transaction>2014/12/15 15:08:47.000.116,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.pas</Transaction>
-    <Transaction>2014/12/15 15:08:47.000.116,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.fmx=C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.fmx</Transaction>
+    <Transaction>2014/12/15 15:08:47.000.116,C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.fmx=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.fmx</Transaction>
+    <Transaction>2014/12/15 15:08:47.000.116,C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas</Transaction>
     <Transaction>2014/12/15 15:20:37.000.300,=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas</Transaction>
-    <Transaction>2014/12/15 15:21:36.000.727,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.pas</Transaction>
-    <Transaction>2014/12/15 15:21:36.000.727,C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.dfm=C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.dfm</Transaction>
-    <Transaction>2014/12/16 12:10:39.000.723,C:\Users\LIPPOLIS\Documents\00 - XE7\Project1.dproj=C:\Users\LIPPOLIS\Documents\00 - XE7\Grandguru.dproj</Transaction>
-    <Transaction>2014/12/16 14:14:21.000.814,C:\Users\LIPPOLIS\Documents\00 - XE7\Grandguru.dproj=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\Grandguru.dproj</Transaction>
-    <Transaction>2014/12/16 14:14:41.000.343,C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.fmx=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\ProductForm.fmx</Transaction>
-    <Transaction>2014/12/16 14:14:41.000.343,C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.pas=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\ProductForm.pas</Transaction>
-    <Transaction>2014/12/16 14:15:05.000.798,C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.pas=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\DataModule.pas</Transaction>
-    <Transaction>2014/12/16 14:15:05.000.798,C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.dfm=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\DataModule.dfm</Transaction>
+    <Transaction>2014/12/15 15:21:36.000.727,C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.dfm=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.dfm</Transaction>
+    <Transaction>2014/12/15 15:21:36.000.727,C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\Unit2.pas</Transaction>
+    <Transaction>2014/12/16 12:10:39.000.723,C:\Users\LIPPOLIS\Documents\00 - XE7\Grandguru.dproj=C:\Users\LIPPOLIS\Documents\00 - XE7\Project1.dproj</Transaction>
+    <Transaction>2014/12/16 14:14:21.000.814,C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\Grandguru.dproj=C:\Users\LIPPOLIS\Documents\00 - XE7\Grandguru.dproj</Transaction>
+    <Transaction>2014/12/16 14:14:41.000.343,C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\ProductForm.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.pas</Transaction>
+    <Transaction>2014/12/16 14:14:41.000.343,C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\ProductForm.fmx=C:\Users\LIPPOLIS\Documents\00 - XE7\ProductForm.fmx</Transaction>
+    <Transaction>2014/12/16 14:15:05.000.798,C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\DataModule.dfm=C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.dfm</Transaction>
+    <Transaction>2014/12/16 14:15:05.000.798,C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\DataModule.pas=C:\Users\LIPPOLIS\Documents\00 - XE7\DataModule.pas</Transaction>
+    <Transaction>2014/12/17 11:15:40.996,=C:\Users\LIPPOLIS\Documents\000 - Git\Grandguru\Unit1.pas</Transaction>
   </Transactions>
+	<BT_BuildType>Debug</BT_BuildType>
 </BorlandProject>
